@@ -10,7 +10,7 @@ const nextConfig = {
     domains: ['static.wixstatic.com', 'supabase.co'],
     unoptimized: true,
   },
-  output: 'export',
+  // Remove output: 'export' for pages router with i18n
   trailingSlash: true,
   assetPrefix: process.env.NODE_ENV === 'production' ? undefined : undefined,
   experimental: {
@@ -27,6 +27,30 @@ const nextConfig = {
       };
     }
     return config;
+  },
+  // Redirect configuration for language detection
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
+  // Custom headers for better SEO
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+          },
+        ],
+      },
+    ]
   },
 }
 
