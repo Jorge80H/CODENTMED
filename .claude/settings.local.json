@@ -4,7 +4,8 @@
       "mcp__firecrawl__firecrawl_scrape",
       "WebFetch(domain:servimed.net.co)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": []
   }

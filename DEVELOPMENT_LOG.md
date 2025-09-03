@@ -10,18 +10,15 @@
 ## 📋 LISTA DE TAREAS (TODO LIST)
 
 ### ✅ COMPLETADAS
-- [x] Crear archivo de configuración package.json
-- [x] Configurar next.config.js con soporte i18n
-- [x] Setup configuración i18n (español/inglés)
+- [x] **Configurar estructura del proyecto Next.js con TypeScript y Tailwind**
+- [x] **Inicializar repositorio Git y conectar con GitHub**
+- [x] **Configurar cliente Supabase y esquema de base de datos**
+- [x] **Configurar Netlify deployment con netlify.toml**
 
 ### 🔄 EN PROGRESO
-- [ ] **Configurar estructura del proyecto Next.js con TypeScript y Tailwind**
+- [ ] **Implementar sistema bilingüe (ES/EN) con next-i18next**
 
 ### ⏳ PENDIENTES
-- [ ] **Inicializar repositorio Git y conectar con GitHub**
-- [ ] **Configurar cliente Supabase y esquema de base de datos**
-- [ ] **Configurar Netlify deployment con netlify.toml**
-- [ ] **Implementar sistema bilingüe (ES/EN) con next-i18next**
 - [ ] **Crear componentes base y design system**
 - [ ] **Desarrollar estructura de páginas principales**
 - [ ] **Implementar formularios con integración a Supabase**
