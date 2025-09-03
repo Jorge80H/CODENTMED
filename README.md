@@ -41,13 +41,13 @@ NEXT_PUBLIC_DR_WILSON_URL=https://drwilsonbautista.com
 npm run dev
 ```
 
-### 5. Conectar con GitHub
-1. Crear repositorio en GitHub
-2. Conectar repositorio local:
+### 5. ✅ Repositorio GitHub Conectado
+**URL del repositorio:** https://github.com/Jorge80H/CODENTMED.git
+
+El repositorio ya está configurado y sincronizado. Para development futuro:
 ```bash
-git remote add origin https://github.com/tu-usuario/codentmed-ips.git
-git branch -M main
-git push -u origin main
+git pull origin main    # Obtener últimos cambios
+git push origin main    # Subir cambios locales
 ```
 
 ### 6. Configurar Netlify
