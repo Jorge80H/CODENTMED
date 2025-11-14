@@ -10,7 +10,7 @@ This repository contains documentation and project planning files for CODENTMED 
 
 **Phase 1**: Strategic Digital Positioning
 - Corporate website for CODENTMED IPS (bilingual: Spanish and English, with international positioning focus)
-- Dr. Wilson Bautista personal brand website (bilingual: Spanish and English, scientific authority)
+- Dr. Wilson Bautista website optimization + SEO strategy + content creation (existing site enhancement)
 - Specialized sections for private consultation connected between both sites
 - SEO optimization for national and international reach
 
@@ -41,15 +41,18 @@ This is a documentation-only repository containing:
 
 **Phase 1: Strategic Digital Positioning**
 - CODENTMED IPS Website: $1,400,000 COP + IVA
-- Dr. Wilson Bautista Website: $1,200,000 COP + IVA
-- **Total Phase 1**: $2,600,000 COP + IVA
+- Dr. Wilson Bautista Website Optimization + SEO + Content: $500,000 COP + IVA
+- **Total Phase 1**: $1,900,000 COP + IVA
 - Payment: 50% upfront, 50% on delivery
 
 **Phase 2: Advanced Operational Automations**
 - Appointments, Payments & Follow-ups System: $1,800,000 COP + IVA
 - Intelligent Management Agents (Training + Admin + Patient Handbook): $1,500,000 COP + IVA
 
-**Monthly Retainer**: $480,000 COP + IVA/month (starts after Phase 1 completion)
+**Monthly Services (Starting after Phase 1)**:
+- Website Maintenance: $140,000 COP + IVA/month
+- Strategic Positioning & Content: $300,000 COP + IVA/month  
+- Automations (when active): $480,000 COP + IVA/month
 
 ## Key Technical Specifications
 
