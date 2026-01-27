@@ -3,28 +3,28 @@
 ## Estado del Proyecto: ✅ PÁGINAS PRINCIPALES COMPLETADAS
 
 **Fecha de inicio:** 3 de Septiembre, 2025  
-**Tecnologías:** Next.js 14, TypeScript, Tailwind CSS, Supabase, Netlify
+**Tecnologías:** Next.js 14, TypeScript, Tailwind CSS, InstantDB, Netlify
 
 ---
 
 ## 📋 LISTA DE TAREAS (TODO LIST)
 
-### ✅ COMPLETADAS (9/10)
+### ✅ COMPLETADAS (10/11)
 - [x] **Configurar estructura del proyecto Next.js con TypeScript y Tailwind**
 - [x] **Inicializar repositorio Git y conectar con GitHub**
-- [x] **Configurar cliente Supabase y esquema de base de datos**
+- [x] **Configurar cliente InstantDB y esquema de base de datos**
 - [x] **Configurar Netlify deployment con netlify.toml**
 - [x] **Implementar sistema bilingüe (ES/EN) con next-i18next**
 - [x] **Crear componentes base y design system**
-- [x] **✨ NUEVO: Página /para-patrocinadores completada**
-- [x] **✨ NUEVO: Página /para-pacientes completada**
-- [x] **✨ NUEVO: Página /nosotros completada**
-- [x] **✨ NUEVO: Página /contacto completada**
-- [x] **✨ NUEVO: Página /blog completada**
-- [x] **✨ NUEVO: Sistema de servicios dinámicos [slug] completado**
+- [x] **✨ Página /para-patrocinadores completada**
+- [x] **✨ Página /para-pacientes completada**
+- [x] **✨ Página /nosotros completada**
+- [x] **✨ Página /contacto completada**
+- [x] **✨ Página /blog completada**
+- [x] **✨ Sistema de servicios dinámicos [slug] completado**
 
-### ⏳ PENDIENTES (1/10)
-- [ ] **Implementar formularios con integración a Supabase**
+### ⏳ PENDIENTES (1/11)
+- [ ] **Cargar datos de ejemplo en InstantDB**
 
 ### 🎯 SIGUIENTES FASES
 - [ ] **Configurar integración con drwilsonbautista.com**
@@ -40,13 +40,12 @@ codentmed-ips/
 │   ├── app/ (App Router Next.js 14)
 │   ├── components/
 │   ├── lib/
-│   │   ├── supabase.ts
+│   │   ├── instantdb.ts
 │   │   └── forms.ts
 │   └── utils/
 ├── public/
 ├── netlify.toml
 ├── next.config.js
-├── supabase/ (migrations y configuración)
 └── package.json
 ```
 
@@ -57,7 +56,7 @@ codentmed-ips/
 ### Infraestructura Base ✅
 - ✅ **Next.js 14** con TypeScript y Pages Router
 - ✅ **Tailwind CSS** con colores de marca CODENTMED
-- ✅ **Supabase** cliente + esquema BD completo
+- ✅ **InstantDB** cliente + esquema BD completo (App ID: `2935a123-9c03-4e77-8072-d370920ae7fc`)
 - ✅ **GitHub** repositorio conectado: https://github.com/Jorge80H/CODENTMED.git
 - ✅ **Netlify** configuración deployment automático
 
@@ -79,43 +78,26 @@ codentmed-ips/
 
 ## 🎯 PRÓXIMOS PASOS PARA EL SIGUIENTE DESARROLLADOR
 
-### 🚀 **INMEDIATO** (Desarrollar estructura de páginas principales)
+### 🚀 **INMEDIATO** (Cargar datos en InstantDB)
 
-1. **Crear páginas principales bilingües**:
-   ```
-   src/pages/para-patrocinadores.tsx
-   src/pages/para-pacientes.tsx  
-   src/pages/servicios/[slug].tsx
-   src/pages/nosotros.tsx
-   src/pages/blog/index.tsx
-   src/pages/contacto.tsx
-   ```
+1. **Usar MCP de InstantDB para cargar datos de ejemplo**:
+   - heroSlides (carrusel del home)
+   - blogPosts (artículos del blog)
+   - blogCategories y blogAuthors
+   - clinicalStudies (estudios clínicos)
 
-2. **Implementar contenido usando Layout + traducciones**:
-   - Usar `<Layout title="" description="">` wrapper
-   - Implementar `useCustomTranslation()` hook
-   - Seguir patrón de `src/pages/index.tsx`
+2. **Verificar funcionamiento de formularios**:
+   - Formulario de contacto general
+   - Formulario para patrocinadores
+   - Formulario para pacientes
 
-### 🔄 **SIGUIENTE** (Formularios con Supabase)
+### 🔗 **SIGUIENTE** (Integraciones)
 
-3. **Implementar formularios de contacto**:
-   - Formulario patrocinadores (sponsors table)
-   - Formulario pacientes (patients table)  
-   - Formulario consulta privada Dr. Wilson
-   - Usar React Hook Form + Supabase Service
-
-4. **Testing de formularios**:
-   - Crear proyecto Supabase
-   - Ejecutar migration SQL
-   - Configurar variables de entorno
-
-### 🔗 **FINAL** (Integraciones)
-
-5. **Cross-domain con drwilsonbautista.com**:
+3. **Cross-domain con drwilsonbautista.com**:
    - Implementar redirects configurados
    - Setup shared consultation system
    
-6. **SEO avanzado**:
+4. **SEO avanzado**:
    - Meta tags dinámicos por página
    - Schema.org structured data
    - Sitemap generation
@@ -124,7 +106,7 @@ codentmed-ips/
 
 - **Componentes UI**: `@/components/ui/*`
 - **Utilidades**: `@/lib/utils`, `@/lib/i18n`
-- **Supabase**: `@/lib/supabase` (SupabaseService class)
+- **InstantDB**: `@/lib/instantdb` (cliente configurado)
 - **Traducciones**: `/public/locales/{es,en}/common.json`
 - **Ejemplos**: Revisar `src/pages/index.tsx` como template
 
@@ -137,7 +119,7 @@ codentmed-ips/
 - **Estructura completa**: Next.js 14 + TypeScript + Tailwind
 - **Sistema bilingüe**: Español/Inglés con detección automática
 - **Componentes UI**: Sistema completo listo para usar
-- **Supabase**: Cliente configurado + schema SQL listo
+- **InstantDB**: Cliente configurado + MCP disponible
 - **Netlify**: Deployment automático configurado
 
 ### ⚡ **COMANDOS PARA CONTINUAR**
@@ -150,7 +132,7 @@ cd CODENTMED
 npm install
 
 # 3. Configurar variables de entorno (.env.local)
-# Ver .env.example para variables necesarias
+NEXT_PUBLIC_INSTANT_APP_ID=2935a123-9c03-4e77-8072-d370920ae7fc
 
 # 4. Desarrollo local
 npm run dev
@@ -162,13 +144,13 @@ npm run dev
 - ✅ **i18n System**: 100%  
 - ✅ **Design System**: 100%
 - ✅ **Páginas Principales**: 100% ✨ **¡COMPLETADAS!**
-- ⏳ **Formularios**: 0%
+- ⏳ **Datos de ejemplo**: 0%
 - ⏳ **Integraciones**: 0%
 
 ### 🎯 **SIGUIENTE MILESTONE**
-**Objetivo**: Implementar formularios funcionales con Supabase
-**Tiempo estimado**: 1-2 días
-**Archivos a completar**: Integración de formularios en páginas existentes
+**Objetivo**: Cargar datos de ejemplo en InstantDB
+**Tiempo estimado**: 1 hora
+**Archivos a completar**: Usar MCP de InstantDB para cargar heroSlides, blogPosts, etc.
 
 ---
 
@@ -177,17 +159,17 @@ npm run dev
 - Implementar PWA capabilities
 - Sistema de cache avanzado  
 - Optimización de imágenes automática
-- Analytics avanzados con Supabase
+- Analytics avanzados
 
 ---
 
-**Última actualización:** 4 de Septiembre, 2025 - Claude Code  
+**Última actualización:** 27 de Enero, 2026 - Gemini  
 **Estado:** **90% COMPLETADO** - ✨ **PÁGINAS PRINCIPALES COMPLETADAS**  
-**Próximo paso:** Implementar formularios funcionales con Supabase
+**Próximo paso:** Cargar datos de ejemplo en InstantDB
 
 ---
 
-## 🎉 **LOGROS COMPLETADOS HOY**
+## 🎉 **LOGROS COMPLETADOS**
 
 ### ✅ **PÁGINAS CREADAS**
 1. **`/para-patrocinadores`** - Página completa para patrocinadores con:
@@ -247,4 +229,4 @@ npm run dev
 - **6 páginas nuevas** completamente funcionales
 - **Sistema escalable** para futuros servicios
 - **Experiencia de usuario** completa y profesional
-- **Base sólida** para formularios Supabase
+- **Base sólida** para datos dinámicos con InstantDB

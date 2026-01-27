@@ -6,7 +6,7 @@ Centro Integrado de Medicina, Odontología e Investigación Clínica - Atención
 
 **Fase actual:** Configuración inicial completada ✅  
 **Deploy target:** Netlify + GitHub  
-**Base de datos:** Supabase  
+**Base de datos:** InstantDB (App ID: `2935a123-9c03-4e77-8072-d370920ae7fc`)
 **Stack:** Next.js 14 + TypeScript + Tailwind CSS
 
 ## 📋 Próximos Pasos para Continuar
@@ -17,31 +17,24 @@ npm install
 ```
 
 ### 2. Configurar Variables de Entorno
-1. Crear proyecto en [Supabase](https://supabase.com)
-2. Copiar `.env.example` a `.env.local`
-3. Completar las variables:
+1. Copiar `.env.example` a `.env.local`
+2. Completar las variables:
 ```bash
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=https://tu-proyecto.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=tu-anon-key
+# InstantDB
+NEXT_PUBLIC_INSTANT_APP_ID=2935a123-9c03-4e77-8072-d370920ae7fc
+INSTANT_SECRET_TOKEN=tu-secret-token
 
 # Site
 NEXT_PUBLIC_SITE_URL=https://codentmed-ips.netlify.app
 NEXT_PUBLIC_DR_WILSON_URL=https://drwilsonbautista.com
 ```
 
-### 3. Ejecutar Migraciones de Supabase
-```bash
-# En el dashboard de Supabase, ejecutar el SQL de:
-# supabase/migrations/001_initial_schema.sql
-```
-
-### 4. Iniciar Desarrollo Local
+### 3. Iniciar Desarrollo Local
 ```bash
 npm run dev
 ```
 
-### 5. ✅ Repositorio GitHub Conectado
+### 4. ✅ Repositorio GitHub Conectado
 **URL del repositorio:** https://github.com/Jorge80H/CODENTMED.git
 
 El repositorio ya está configurado y sincronizado. Para development futuro:
@@ -50,7 +43,7 @@ git pull origin main    # Obtener últimos cambios
 git push origin main    # Subir cambios locales
 ```
 
-### 6. Configurar Netlify
+### 5. Configurar Netlify
 1. Crear cuenta en [Netlify](https://netlify.com)
 2. Conectar repositorio GitHub
 3. Configurar variables de entorno en Netlify
@@ -66,7 +59,7 @@ src/
 │   └── globals.css     # Estilos globales
 ├── components/         # Componentes reutilizables
 ├── lib/
-│   └── supabase.ts     # Cliente Supabase
+│   └── instantdb.ts    # Cliente InstantDB
 └── utils/              # Utilidades
 ```
 
@@ -84,26 +77,45 @@ src/
 - `.section-padding` - Padding de sección
 - `.container-max` - Contenedor máximo
 
-## 📊 Base de Datos (Supabase)
+## 📊 Base de Datos (InstantDB)
+
+### App ID
+`2935a123-9c03-4e77-8072-d370920ae7fc`
 
 ### Tablas Principales
-- **contacts** - Contactos principales
-- **sponsors** - Información de patrocinadores
-- **patients** - Información de pacientes
-- **private_consultations** - Consultas privadas
+- **heroSlides** - Carrusel del homepage
+- **blogPosts** - Artículos del blog (bilingüe)
+- **blogCategories** - Categorías del blog
+- **blogAuthors** - Autores del blog
+- **clinicalStudies** - Estudios clínicos activos
+- **contactSubmissions** - Formularios de contacto
 
-### Servicios Disponibles
+### Uso en la Aplicación
 ```typescript
-import SupabaseService from '@/lib/supabase'
+import { db } from '@/lib/instantdb'
 
-// Crear contacto
-await SupabaseService.createContact(contactData)
-
-// Enviar formulario completo
-await SupabaseService.submitForm({
-  contact: contactData,
-  additionalData: formSpecificData
+// Query hero slides activos
+const { data, isLoading } = db.useQuery({
+  heroSlides: {
+    $: {
+      where: { isActive: true },
+      order: { order: 'asc' }
+    }
+  }
 })
+
+// Enviar formulario de contacto
+await db.transact([
+  db.tx.contactSubmissions[crypto.randomUUID()]().update({
+    name: 'Nombre',
+    email: 'email@example.com',
+    message: 'Mensaje',
+    type: 'general',
+    language: 'es',
+    createdAt: Date.now(),
+    status: 'new'
+  })
+])
 ```
 
 ## 🌍 Internacionalización
@@ -113,24 +125,24 @@ await SupabaseService.submitForm({
 - **Detección automática:** Por geolocalización y browser
 - **URLs:** `/es/` y `/en/`
 
-## 📱 Páginas Planificadas
+## 📱 Páginas Implementadas
 
 ### Estructura del Sitio
 ```
-├── Home/Inicio
-├── Para Patrocinadores (B2B)
-├── Para Pacientes (B2C)
+├── Home/Inicio ✅
+├── Para Patrocinadores (B2B) ✅
+├── Para Pacientes (B2C) ✅
+├── Nosotros ✅
+├── Blog ✅
+├── Contacto ✅
 ├── Servicios/
-│   ├── Medicina Interna & Reumatología
-│   ├── Odontología Especializada
-│   ├── Investigación Clínica
-│   ├── Educación Médica
-│   └── Asesorías Institucionales
-├── Dr. Wilson Bautista (integración)
-├── Investigación y Publicaciones
-├── Certificaciones
-├── Blog/Recursos
-└── Contacto Internacional
+│   ├── Medicina Interna & Reumatología ✅
+│   ├── Odontología Especializada ✅
+│   ├── Investigación Clínica ✅
+│   ├── Educación Médica ✅
+│   └── Asesorías Institucionales ✅
+├── Dr. Wilson Bautista (integración pendiente)
+└── Certificaciones
 ```
 
 ## 🔧 Scripts Disponibles
@@ -166,14 +178,14 @@ El proyecto está configurado con GitHub Actions para deploy automático en Netl
 
 ## 📝 Próximos Desarrollos
 
-1. **Sistema bilingüe completo** con next-i18next
-2. **Componentes base** y design system
-3. **Páginas principales** con contenido
-4. **Formularios** con integración Supabase
-5. **SEO avanzado** internacional
+1. ✅ **Sistema bilingüe completo** con next-i18next
+2. ✅ **Componentes base** y design system
+3. ✅ **Páginas principales** con contenido
+4. ⏳ **Formularios** con integración InstantDB
+5. ⏳ **SEO avanzado** internacional
 
 ---
 
 **Desarrollado por:** Empleados Digitales  
-**Contacto técnico:** Claude Code Assistant  
-**Versión:** 0.1.0
+**Contacto técnico:** Jorge Henao  
+**Versión:** 0.2.0

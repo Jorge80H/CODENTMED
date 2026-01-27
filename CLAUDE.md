@@ -56,11 +56,20 @@ This is a documentation-only repository containing:
 
 ## Key Technical Specifications
 
-**Recommended Technology Stack:**
-- Frontend: Next.js (React)
-- CMS: Headless CMS (e.g., Strapi) 
-- Hosting: Vercel/Netlify
-- Database: To be determined based on CMS choice
+**Technology Stack:**
+- Frontend: Next.js 14 (React) with TypeScript
+- Styling: Tailwind CSS
+- Database: **InstantDB** (App ID: `2935a123-9c03-4e77-8072-d370920ae7fc`)
+- Hosting: Netlify
+- CMS: Headless via InstantDB
+
+**Database Schema (InstantDB):**
+- `heroSlides` - Homepage carousel management
+- `blogPosts` - Blog articles (bilingual ES/EN)
+- `blogCategories` - Blog categories
+- `blogAuthors` - Blog authors
+- `clinicalStudies` - Active clinical studies
+- `contactSubmissions` - Contact form submissions
 
 **Critical Requirements:**
 - Page load time: < 3 seconds
@@ -70,6 +79,17 @@ This is a documentation-only repository containing:
 - Google Analytics 4 integration
 - Integration readiness for appointment/payment systems
 - Electronic health records integration capability
+
+## InstantDB MCP Server
+
+This project uses InstantDB with the MCP server for AI-assisted development:
+- **MCP URL**: `https://mcp.instantdb.com/mcp`
+- **App ID**: `2935a123-9c03-4e77-8072-d370920ae7fc`
+
+Use the InstantDB MCP server to:
+- Query and view data in the database
+- Create and update records
+- Manage schema and permissions
 
 ## Important Project Context
 

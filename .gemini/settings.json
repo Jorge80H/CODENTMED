@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "instant": {
+      "httpUrl": "https://mcp.instantdb.com/mcp"
+    }
+  }
+}
