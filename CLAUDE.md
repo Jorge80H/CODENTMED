@@ -1,5 +1,9 @@
 # CLAUDE.md
 
+> ⚠️ **ANTES DE CUALQUIER TAREA: Lee el archivo `memory.md`** en la raíz del repositorio.
+> Contiene el estado actual del proyecto, decisiones tomadas, pendientes y aprendizajes clave.
+> Ruta: `g:\EMPLEADOS DIGITALES\CLIENTES\CODENMED_IPS\CODENTMED_IPS_COM\memory.md`
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
